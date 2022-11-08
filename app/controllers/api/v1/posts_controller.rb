@@ -2,12 +2,12 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     posts = Post.all.order(:id)
-    render json: posts
+    render json: posts, each_serializer: Api::V1::PostSerializer
   end
 
   def show
     post = Post.find(params[:id])
-    render json: post
+    render json: post, serializer: Api::V1::PostSerializer
   end
 
   def update
