@@ -10,6 +10,15 @@ class Api::V1::PostsController < ApplicationController
     render json: post
   end
 
+  def update
+    post = Post.find(params[:id])
+    if post.update(past_params)
+      render json: post
+    else
+      render json: post.errors
+    end
+  end
+
   private
 
   def post_params
