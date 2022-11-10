@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  rescue_from StandardError, with: :error500
+  rescue_from StandardError, with: :error_500
   rescue_from ActiveRecord::RecordNotFound, with: :error_404
   rescue_from ActionController::RoutingError, with: :error_404
 
