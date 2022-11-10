@@ -1,5 +1,5 @@
 class Api::V1::PostsController < ApplicationController
-  before_action :set_post, only:[:show, :update]
+  before_action :set_post, only:[:show, :update, :destroy]
 
   def index
     posts = Post.all.order(:id)
@@ -23,7 +23,15 @@ class Api::V1::PostsController < ApplicationController
     if @post.update(post_params)
       render json: @post
     else
-      render json: @post.errors
+      render json: @post.errors.full_messages
+    end
+  end
+
+  def destroy
+    if @post.destroy
+      render json: @post
+    else
+      render json: @post.errors.full_messages
     end
   end
 
