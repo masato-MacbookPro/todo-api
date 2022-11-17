@@ -13,9 +13,9 @@ class Api::V1::PostsController < ApplicationController
   def create
     post = Post.new(post_params)
     if post.save
-      render json: post
+      render json: post, status: :ok
     else
-      render json: post.errors.full_messages
+      render json: post.errors.full_messages, status: :bad_request
     end
   end
 
