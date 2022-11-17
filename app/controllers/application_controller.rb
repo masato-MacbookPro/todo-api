@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-        include DeviseTokenAuth::Concerns::SetUserByToken
+  include DeviseTokenAuth::Concerns::SetUserByToken
+  include ActionController::RequestForgeryProtection
   rescue_from StandardError, with: :error_500
   rescue_from ActiveRecord::RecordNotFound, with: :error_404
   rescue_from ActionController::RoutingError, with: :error_404
