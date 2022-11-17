@@ -45,3 +45,7 @@ gem 'active_model_serializers'
 # 日本語化
 gem 'rails-i18n'
 gem 'i18n_generators'
+
+# ログイン機能のためのgem
+gem 'devise'
+gem 'devise_token_auth'
